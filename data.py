@@ -30,5 +30,6 @@ class OrderData:
     expected_text = 'Заказ оформлен'
 
 
-class RedirectExpected:
+class Redirect:
     expected_url_scooter = 'https://qa-scooter.praktikum-services.ru/'
+    trakit_url = 'https://qa-scooter.praktikum-services.ru/track?t=758439'

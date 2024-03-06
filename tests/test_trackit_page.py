@@ -1,19 +1,19 @@
 import allure
 from pages.trackit_page import MainPageRedirect
 from locators.trackit_page_locators import RedirectLocators
-from data import RedirectExpected
+from data import Redirect
 from conftest import driver
 
 
 class TestRedirect:
 
     @allure.title('Проверка, что при нажатии на логотип «Самоката», пападаешь на главную страницу «Самоката»')
-    @allure.description('Сверяем текущий url с ожидаемым (data > RedirectExpected)')
+    @allure.description('Сверяем текущий url с ожидаемым (data > Redirect)')
     def test_redirect_to_scooter(self, driver):
         redirect = MainPageRedirect(driver)
         redirect.redirect_to_scooter(driver, RedirectLocators.SCOOTER_LOGO)
 
-        assert driver.current_url == RedirectExpected.expected_url_scooter
+        assert driver.current_url == Redirect.expected_url_scooter
 
     @allure.title('Проверка, что при нажатии на логотип Яндекса, пападаешь на страницу Дзена')
     @allure.description('Находим элемент на странице Дзена после редиректа')

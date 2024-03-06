@@ -2,13 +2,13 @@ import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+
 class BasePage:
 
     @allure.step('Инициализация браузера')
     def __init__(self, driver):
         self.driver = driver
 
-    @allure.step('Поиск элемента с ожиданием')
     def find_element_with_wait(self, locator):
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
 
@@ -29,4 +29,3 @@ class BasePage:
     def set_text_to_element(self, locator, text):
         element = self.find_element_with_wait(locator)
         element.send_keys(text)
-
